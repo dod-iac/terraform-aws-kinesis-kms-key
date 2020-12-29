@@ -79,7 +79,7 @@ data "aws_iam_policy_document" "kinesis" {
     condition {
       test     = "StringEquals"
       variable = "kms:ViaService"
-      values   = ["kinesis.us-west-2.amazonaws.com"]
+      values   = [format("kinesis.%s.amazonaws.com", data.aws_region.current.name)]
     }
   }
 }
