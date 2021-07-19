@@ -79,7 +79,9 @@ data "aws_iam_policy_document" "kinesis" {
     condition {
       test     = "StringEquals"
       variable = "kms:ViaService"
-      values   = ["kinesis.us-west-2.amazonaws.com"]
+      # we need a parameterized vaule or a wild card here in order to work in
+      # comcloud, govcloud, and multi-region
+      values   = ["kinesis.*.amazonaws.com"]
     }
   }
 }
