@@ -44,13 +44,16 @@ data "aws_iam_policy_document" "kinesis" {
     effect = "Allow"
     principals {
       type = "AWS"
-      identifiers = [
-        format(
-          "arn:%s:iam::%s:root",
-          data.aws_partition.current.partition,
-          data.aws_caller_identity.current.account_id
-        )
-      ]
+      identifiers = concat(
+        [
+          format(
+            "arn:%s:iam::%s:root",
+            data.aws_partition.current.partition,
+            data.aws_caller_identity.current.account_id
+          )
+        ],
+        var.additional_iam_principals,
+      )
     }
     resources = ["*"]
   }
