@@ -1,3 +1,9 @@
+variable "additional_iam_principals" {
+  type        = list(string)
+  description = "Additional IAM Principals to allow key management"
+  default     = []
+}
+
 variable "description" {
   type        = string
   description = ""

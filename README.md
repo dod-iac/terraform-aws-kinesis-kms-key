@@ -59,6 +59,7 @@ No Modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| additional_iam_principals | Additional IAM Principals to allow key management | `list(string)` | `[]` | no |
 | description | n/a | `string` | `"A KMS key used to encrypt Kinesis stream records at-rest."` | no |
 | key\_deletion\_window\_in\_days | Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. | `string` | `30` | no |
 | name | The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/). | `string` | n/a | yes |
